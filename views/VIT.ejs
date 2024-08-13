@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIT-B</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-image: url('/vitback.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+        header{
+            width: 100%;
+            height: 85px;
+            border: 3px solid black;
+            padding-top: 20px;
+            padding-left: 30px;
+            padding-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.069);
+            backdrop-filter: blur(25px);
+            text-align: center;
+            font-size: 25px;
+            text-shadow: 2px 2px 4px black;
+            box-shadow: 2px 2px 4px rgb(35, 33, 33);
+        }
+        footer{
+            border: 3px solid black;
+            height: 30px;
+            text-align: center;
+            padding-top: 5px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.069);
+            backdrop-filter: blur(25px);
+            font-weight: bold;
+            color: white;
+        }
+        .options{
+            border: none;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-around;
+            height: 50vh;
+            margin-top: 10vh;
+            margin-left: 50px;
+            margin-right: 50px;
+            background-color: rgba(255, 255, 255, 0.069);
+            backdrop-filter: blur(25px);
+            box-shadow: 4px 4px 10px white;
+        }
+        .op1{
+            border: 2px solid black;
+            border-radius: 20px;
+            margin-top: 50px;
+            width: 320px;
+            height: 250px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transition: 0.25s;
+        }
+        .op2{
+            border: 2px solid black;
+            border-radius: 20px;
+            margin-top: 50px;
+            width: 320px;
+            height: 250px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transition: 0.25s;
+        }
+        .op3{
+            border: 2px solid black;
+            border-radius: 20px;
+            margin-top: 50px;
+            width: 320px;
+            height: 250px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transition: 0.25s;
+        }
+        
+        p{
+            margin-top: 15px;
+            margin-left: 22px;
+            font-size: 35px;
+            font-weight: bold;
+        }
+        .op1:hover{
+            width: 328px;
+            height: 255px;
+            box-shadow: 2px 2px 4px black;
+        }
+        .op2:hover{
+            width: 328px;
+            height: 255px;
+            box-shadow: 4px 4px 8px black;
+        }
+        .op3:hover{
+            width: 328px;
+            height: 255px;
+            box-shadow: 2px 2px 4px black;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <header>
+    <h1>Vishnu Community</h1>
+</header>
+    <div class="options">
+        <div class="op1" onclick="location.href='/Happenings'" style="background-image: url('/happening.png'); color: white;" ><p>Happenings</p></div>
+        <div class="op2" onclick="location.href='/Events'" style="background-image: url('/events.jpg');"><p>Events</p></div>
+        <div class="op3" style="background-image: url('/notice.jpg');"><p>Notices</p></div>
+
+    </div>
+    <footer>
+        copyrights : 22PA1A05D0 ; 22PA1A05C8 ; VIT-B
+    </footer>
+</body>
+</html>

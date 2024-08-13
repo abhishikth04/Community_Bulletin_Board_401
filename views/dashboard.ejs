@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body{
+            background-image: url('/dashback.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            
+        }
+        h1{
+            font-size: 60px;
+            margin-left: 48px;
+            margin-top: 20px;
+            text-shadow: 2px 2px 4px black;
+        }
+        .options{
+            border: none;
+            border-radius: 20px;
+            margin: 30px 60px 30px 60px;
+            height: 68vh;
+            display: flex;
+            flex-direction: column;
+            background-color: rgba(255, 255, 255, 0.138);
+            backdrop-filter: blur(10px);
+            box-shadow: 3px 3px 5px black;
+            
+        }
+        h2{
+            margin-top: 20px;
+            margin-left: 40px;
+            text-align: center;
+        }
+        .option1{
+            border: 2px solid black;
+            border-radius: 18px;
+            margin-top: 40px;
+            margin-left: 50px;
+            margin-right: 50px;
+            height: 180px;
+            transition: 0.25s;
+        }
+        .option2{
+            border: 2px solid black;
+            border-radius: 18px;
+            margin-top: 30px;
+            margin-left: 50px;
+            margin-right: 50px;
+            height: 180px;
+            margin-bottom: 40px;
+            transition: 0.25s;
+        }
+        p{
+            font-size: 30px;
+            padding: 20px;
+            font-weight: bold;
+        }
+        .option1:hover{
+            background-color: rgb(240, 254, 255);
+            border: 3px solid rgb(4, 4, 4);
+            height: 188px;
+            text-shadow: 1px 1px 6px rgb(64, 54, 54);
+        }
+        .option2:hover{
+            background-color: rgb(240, 254, 255);
+            border: 3px solid rgb(4, 4, 4);
+            height: 188px;
+            text-shadow: 1px 1px 6px rgb(64, 54, 54);
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Welcome, <%= userName %>!</h1>
+
+    
+    <div class="options">
+        <h2>Explore your Communities</h2>
+        <div class="option1" onclick="location.href='/option1'"><p>Vishnu Educational Society -></p></div>
+        <div class="option2" onclick="location.href='/option2'"><p>Join a New Community + </p></div>
+    </div>
+</body>
+</html>

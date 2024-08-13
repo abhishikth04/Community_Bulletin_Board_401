@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happenings</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        .posts {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 60px; /* Ensure space for the fixed post form */
+        }
+        .post {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            padding: 20px;
+            border-left: 5px solid #007bff;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+            width: 100%;
+        }
+        .post h2 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        .post p {
+            margin: 10px 0;
+        }
+        .post .date {
+            font-size: 0.9em;
+            color: #888;
+        }
+        .post:hover {
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            border-left: 5px solid #0056b3;
+        }
+        .add-post {
+            width: 100%;
+            background: #ffffff;
+            border-top: 1px solid #ddd;
+            padding: 20px;
+            box-shadow: 0 -4px 8px rgba(0,0,0,0.2);
+            box-sizing: border-box;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .add-post h2 {
+            margin-top: 0;
+            color: #007bff;
+            text-align: center;
+        }
+        .add-post form {
+            width: 100%;
+            max-width: 800px;
+        }
+        .add-post input, .add-post textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .add-post button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background: #007bff;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+            max-width: 150px;
+            margin: 0 auto;
+            display: block;
+        }
+        .add-post button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Now Happening</h1>
+        <div class="posts">
+            <% if (posts.length > 0) { %>
+                <% posts.forEach(post => { %>
+                    <div class="post">
+                        <h2><%= post.title %></h2>
+                        <p><%= post.content %></p>
+                        <p class="date"><%= new Date(post.createdAt.seconds * 1000).toDateString() %></p>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p>No posts available.</p>
+            <% } %>
+        </div>
+
+        <div class="add-post">
+            <h2>Create a New Post</h2>
+            <form action="/add" method="post">
+                <input type="text" name="title" placeholder="Title" required>
+                <textarea name="content" rows="3" placeholder="Content" required></textarea>
+                <button type="submit">Add Post</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

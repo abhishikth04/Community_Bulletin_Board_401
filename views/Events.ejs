@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e6f7ff;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        .posts {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-bottom: 40px;
+        }
+        .post {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            padding: 20px;
+            border-left: 5px solid #28a745;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .post h2 {
+            margin-top: 0;
+            color: #28a745;
+        }
+        .post p {
+            margin: 10px 0;
+        }
+        .post .date {
+            font-size: 0.9em;
+            color: #888;
+        }
+        .post:hover {
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            border-left: 5px solid #1e7e34;
+        }
+        .add-post {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            max-width: 800px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .add-post h2 {
+            margin-top: 0;
+            color: #28a745;
+        }
+        .add-post input, .add-post textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .add-post button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background: #28a745;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: block;
+            width: 100%;
+        }
+        .add-post button:hover {
+            background: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="header">Events</h1>
+
+        <div class="posts">
+            <% if (events.length > 0) { %>
+                <% events.forEach(event => { %>
+                    <div class="post">
+                        <h2><%= event.title %></h2>
+                        <p><%= event.content %></p>
+                        <p class="date"><%= new Date(event.createdAt.seconds * 1000).toDateString() %></p>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p>No events available.</p>
+            <% } %>
+        </div>
+
+        <div class="add-post">
+            <h2>Post an Event</h2>
+            <form action="/addEvent" method="post">
+                <input type="text" name="title" placeholder="Title" required>
+                <textarea name="content" rows="3" placeholder="Details about the event" required></textarea>
+                <button type="submit">Add Event</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
